@@ -1,3 +1,6 @@
+flag f1 = new flag(random(0,width),random(0,height)); 
+flag f2 = new flag(random(0,width),random(0,height)); 
+
 void setup()
 {
   size (1920,1080);
@@ -16,32 +19,45 @@ color cBlack = #000000;
 color cBrown = #4D3919;
 color cPink = #E2C0E3;
 
+float a = 0.0f;
 
+float w = width*10;
+float h = height*10;
 
-void draw()
-{
-
-int w = width;
-int h = height;
-
-float flagW = width/5;
-float flagH = width/10;
+float flagW = w/5;
+float flagH = w/10;
   
-float TLx = 0.0f;
-float TLy = 0.0f;
-float BLx = 0.0f;
-float BLy = flagH;
+//float TLx;
+//float TLy;
+//float BLx;
+//float BLy = flagH;
 //float TRx = flagW;
 //float TRy = 0;
 //float BRx = flagW;
 //float BRy = flagH;  
-  
-print(w,h);
 
+void draw()
+{
+
+  
+  background(225);
+  f1.update();
+  f2.update();
+}
+
+class flag{
+
+float TLx, TLy;
+flag (float PosX, float PosY) {
+  TLx = PosX;
+  TLy = PosY;
+}
+
+void update() {
   noStroke();
   //stripes
-    fill(cWhite);
-  rect (TLx, TLy, flagW, flagH);
+  //  fill(cWhite);
+  //rect (TLx, TLy, flagW, flagH);
     fill(cRed);
   rect (TLx, TLy, flagW, flagH/6);
     fill(cYellow);
@@ -57,7 +73,7 @@ print(w,h);
   
   //triangles + circle
     fill(cBlack);
-  triangle (TLx,TLy, 0,BLy, flagW/3,flagH/2);
+  triangle (TLx,TLy, 0,flagH, flagW/3,flagH/2);
     fill(cBrown);
   triangle (TLx-flagH/8,TLy, TLx,TLy+flagH/8*7, flagW/15*4,flagH/2);
     fill(cPink);
@@ -66,11 +82,11 @@ print(w,h);
   triangle (TLx-flagH/8*3,TLy, TLx,TLy+flagH/8*5, flagW/15*2,flagH/2);
     noFill();
     stroke(cPurple);
-    strokeWeight(flagW/100s);
+    strokeWeight(flagW/100);
   circle (flagW/15,flagH/2, flagW/25);
   
+  flagW += sin(a);
+  a += .1;
   
-
-
-  
+  }
 }
