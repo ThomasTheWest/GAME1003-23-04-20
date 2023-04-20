@@ -1,14 +1,12 @@
-void setup()
-{
+void setup() {
   size (1920,1080);
-  colorMode(HSB);
-  background(225);
+  background(255);
 }
 
-float rdm1 = random(1080);
-float rdm2 = random(1080);
-float rdm3 = random(1080);
-float rdm4 = random(1080);
+float rdm1 = random(width);
+float rdm2 = random(width);
+float rdm3 = random(width);
+float rdm4 = random(width);
 float rdmScale = random(25,50);
 
 flag f1 = new flag(rdm1,rdm1); 
@@ -46,13 +44,13 @@ float flagH = w/10;
 
 void draw()
 {
-
-  
   background(225);
   f1.update();
   f2.update();
   f3.update();
   f4.update();
+  
+
 }
 
 class flag{
@@ -62,7 +60,6 @@ flag (float PosX, float PosY) {
   TLx = PosX;
   TLy = PosY;
 }
-
 void update() {
   noStroke();
   //stripes
@@ -93,10 +90,9 @@ void update() {
     noFill();
     stroke(cPurple);
     strokeWeight(flagW/100);
-  circle (TLx+flagW/15,TLy+flagH/2, flagW/25);
-  
+  circle (TLx+flagW/15,TLy+flagH/2, flagW/25); 
   flagW += sin(a);
   a += .05;
-  
+
   }
 }
