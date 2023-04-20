@@ -1,12 +1,16 @@
-flag f1 = new flag(random(0,width),random(0,height)); 
-flag f2 = new flag(random(0,width),random(0,height)); 
-
 void setup()
 {
   size (1920,1080);
   colorMode(HSB);
   background(225);
 }
+
+float rdm1 = random(0,width);
+float rdm2 = random(0,width);
+float rdmScale = random(10,50);
+
+flag f1 = new flag(rdm1,rdm1); 
+flag f2 = new flag(rdm2,rdm2); 
 
 color cRed = #F2181C;
 color cYellow = #FFF700;
@@ -21,8 +25,8 @@ color cPink = #E2C0E3;
 
 float a = 0.0f;
 
-float w = width*10;
-float h = height*10;
+float w = width*rdmScale;
+float h = height*rdmScale;
 
 float flagW = w/5;
 float flagH = w/10;
@@ -73,17 +77,17 @@ void update() {
   
   //triangles + circle
     fill(cBlack);
-  triangle (TLx,TLy, 0,flagH, flagW/3,flagH/2);
+  triangle (TLx,TLy, TLx,TLy+flagH, TLx+flagW/3,TLy+flagH/2);
     fill(cBrown);
-  triangle (TLx-flagH/8,TLy, TLx,TLy+flagH/8*7, flagW/15*4,flagH/2);
+  triangle (TLx,TLy+flagH/8, TLx,TLy+flagH/8*7, TLx+flagW/15*4,TLy+flagH/2);
     fill(cPink);
-  triangle (TLx-flagH/4,TLy, TLx,TLy+flagH/4*3, flagW/15*3,flagH/2);
+  triangle (TLx,TLy+flagH/4, TLx,TLy+flagH/4*3, TLx+flagW/15*3,TLy+flagH/2);
     fill(cYellow);
-  triangle (TLx-flagH/8*3,TLy, TLx,TLy+flagH/8*5, flagW/15*2,flagH/2);
+  triangle (TLx,TLy+flagH/8*3, TLx,TLy+flagH/8*5, TLx+flagW/15*2,TLy+flagH/2);
     noFill();
     stroke(cPurple);
     strokeWeight(flagW/100);
-  circle (flagW/15,flagH/2, flagW/25);
+  circle (TLx+flagW/15,TLy+flagH/2, flagW/25);
   
   flagW += sin(a);
   a += .1;
