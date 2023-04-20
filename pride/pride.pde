@@ -16,6 +16,8 @@ color cBlack = #000000;
 color cBrown = #4D3919;
 color cPink = #E2C0E3;
 
+
+
 void draw()
 {
 
@@ -24,7 +26,7 @@ int h = height;
 
 float flagW = width/5;
 float flagH = width/10;
-
+  
 float TLx = 0.0f;
 float TLy = 0.0f;
 float BLx = 0.0f;
@@ -53,11 +55,22 @@ print(w,h);
     fill(cPurple);
   rect (TLx, TLy+flagH/6*5, flagW, flagH/6);
   
-  //triangles
+  //triangles + circle
     fill(cBlack);
   triangle (TLx,TLy, 0,BLy, flagW/3,flagH/2);
     fill(cBrown);
   triangle (TLx-flagH/8,TLy, TLx,TLy+flagH/8*7, flagW/15*4,flagH/2);
+    fill(cPink);
+  triangle (TLx-flagH/4,TLy, TLx,TLy+flagH/4*3, flagW/15*3,flagH/2);
+    fill(cYellow);
+  triangle (TLx-flagH/8*3,TLy, TLx,TLy+flagH/8*5, flagW/15*2,flagH/2);
+    noFill();
+    stroke(cPurple);
+    strokeWeight(flagW/100s);
+  circle (flagW/15,flagH/2, flagW/25);
   
+  
+
+
   
 }
