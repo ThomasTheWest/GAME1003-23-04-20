@@ -1,13 +1,18 @@
-void setup() {
+void setup() 
+{
   size (1920,1080);
   background(255);
 }
 
-float rdm1 = random(width);
-float rdm2 = random(width);
-float rdm3 = random(width);
-float rdm4 = random(width);
-float rdmScale = random(25,50);
+int x = width;
+int y = height;
+
+float rdm1 = random(1920);
+float rdm2 = random(1920);
+float rdm3 = random(1920);
+float rdm4 = random(1920);
+float rdmScale = random(15,50);
+//can't get the width call or variable x to set to 1920 here for some reason
 
 flag f1 = new flag(rdm1,rdm1); 
 flag f2 = new flag(rdm2,rdm2); 
@@ -49,12 +54,10 @@ void draw()
   f2.update();
   f3.update();
   f4.update();
-  
-
 }
 
-class flag{
-
+class flag
+{
 float TLx, TLy;
 flag (float PosX, float PosY) {
   TLx = PosX;
@@ -90,7 +93,7 @@ void update() {
     noFill();
     stroke(cPurple);
     strokeWeight(flagW/100);
-  circle (TLx+flagW/15,TLy+flagH/2, flagW/25); 
+  circle (TLx+flagW/20,TLy+flagH/2, flagW/25); 
   flagW += sin(a);
   a += .05;
 
