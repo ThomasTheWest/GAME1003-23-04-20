@@ -5,12 +5,16 @@ void setup()
   background(225);
 }
 
-float rdm1 = random(0,width);
-float rdm2 = random(0,width);
-float rdmScale = random(10,50);
+float rdm1 = random(1080);
+float rdm2 = random(1080);
+float rdm3 = random(1080);
+float rdm4 = random(1080);
+float rdmScale = random(25,50);
 
 flag f1 = new flag(rdm1,rdm1); 
 flag f2 = new flag(rdm2,rdm2); 
+flag f3 = new flag(rdm3,rdm3); 
+flag f4 = new flag(rdm4,rdm4); 
 
 color cRed = #F2181C;
 color cYellow = #FFF700;
@@ -47,6 +51,8 @@ void draw()
   background(225);
   f1.update();
   f2.update();
+  f3.update();
+  f4.update();
 }
 
 class flag{
@@ -63,7 +69,7 @@ void update() {
   //  fill(cWhite);
   //rect (TLx, TLy, flagW, flagH);
     fill(cRed);
-  rect (TLx, TLy, flagW, flagH/6);
+  rect (TLx, TLy, flagW, flagW/2/6);
     fill(cYellow);
   rect (TLx, TLy+flagH/6, flagW, flagH/6);
     fill(cGreen);
@@ -90,7 +96,7 @@ void update() {
   circle (TLx+flagW/15,TLy+flagH/2, flagW/25);
   
   flagW += sin(a);
-  a += .1;
+  a += .05;
   
   }
 }
