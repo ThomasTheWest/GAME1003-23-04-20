@@ -7,17 +7,17 @@ void setup()
 int x = width;
 int y = height;
 
-float rdm1 = random(1920);
-float rdm2 = random(1920);
-float rdm3 = random(1920);
-float rdm4 = random(1920);
+float rdm1 = random(1920/2);
+float rdm2 = random(1920/2);
+float rdm3 = random(1920/2);
+float rdm4 = random(1920/2);
 float rdmScale = random(15,50);
-//can't get the width call or variable x to set to 1920 here for some reason
+//can't get the width call or int x to set to 1920 here for some reason; can't remember it doing this before
 
-flag f1 = new flag(rdm1,rdm1); 
-flag f2 = new flag(rdm2,rdm2); 
-flag f3 = new flag(rdm3,rdm3); 
-flag f4 = new flag(rdm4,rdm4); 
+flag f1 = new flag(rdm1,rdm2); 
+flag f2 = new flag(rdm2,rdm3); 
+flag f3 = new flag(rdm3,rdm4); 
+flag f4 = new flag(rdm4,rdm1); 
 
 color cRed = #F2181C;
 color cYellow = #FFF700;
@@ -37,15 +37,6 @@ float h = height*rdmScale;
 
 float flagW = w/5;
 float flagH = w/10;
-  
-//float TLx;
-//float TLy;
-//float BLx;
-//float BLy = flagH;
-//float TRx = flagW;
-//float TRy = 0;
-//float BRx = flagW;
-//float BRy = flagH;  
 
 void draw()
 {
@@ -96,6 +87,5 @@ void update() {
   circle (TLx+flagW/20,TLy+flagH/2, flagW/25); 
   flagW += sin(a);
   a += .05;
-
   }
 }
